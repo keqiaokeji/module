@@ -55,7 +55,8 @@ public class SdkContext {
      */
     public static void putCommonAttributes(String key, Object obj) {
         commonAttributes.put(key, obj);
-        commonAttributesJson = JsonUtilSdk.toJSONString(commonAttributes);
+//        commonAttributesJson = JsonUtilSdk.toJSONString(commonAttributes);
+        commonAttributesJson = JsonUtil.toJson(commonAttributes);
     }
 
     /**
@@ -69,7 +70,7 @@ public class SdkContext {
             if (StringSdk.isNotBlank(commonAttributesJson)) {
                 Type type = new TypeToken<HashMap<String, Object>>() {
                 }.getType();
-                Map<String, Object> attributes = JsonUtilSdk.parseObject(commonAttributesJson, type);
+                Map<String, Object> attributes = JsonUtil.toObject(commonAttributesJson, type);
                 if (attributes != null) {
                     commonAttributes.putAll(attributes);
                 }

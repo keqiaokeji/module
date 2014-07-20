@@ -1,6 +1,7 @@
 package com.keqiaokeji.module.httpsdk.test;
 
-import com.keqiaokeji.module.httpsdk.utils.JsonUtilSdk;
+
+import com.keqiaokeji.module.httpsdk.utils.JsonUtil;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -84,11 +85,11 @@ public class JsonResult<T> {
     }
 
     public void setContentToJsonString(Object object) {
-        this.content = JsonUtilSdk.toJSONString(object);
+        this.content = JsonUtil.toJson(object);
     }
 
     public <T> T getContentObject(Class<T> clazz) {
-        return JsonUtilSdk.parseObject(this.content, clazz);
+        return JsonUtil.toObject(this.content, clazz);
     }
 
 

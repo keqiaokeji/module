@@ -64,7 +64,7 @@ public class StringSdk {
 				|| obj instanceof Boolean || obj instanceof Byte || obj instanceof Float || obj instanceof Double) {
 			return obj.toString();
 		}
-		return JsonUtilSdk.toJSONString(obj);
+		return JsonUtil.toJson(obj);
 	}
 	
 	/**
